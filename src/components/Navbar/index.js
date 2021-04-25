@@ -16,7 +16,14 @@ export default function Navbar({ input, act, favo, hom }) {
         <Form style={{ padding: '10px' }} />
       ) : (
         <Form>
-          <input placeholder='Ex: iron man' onChange={input} />
+          <input
+            onKeyPress={(e) => {
+              // eslint-disable-next-line no-unused-expressions
+              e.key === 'Enter' && e.preventDefault();
+            }}
+            placeholder='Ex: iron man'
+            onChange={input}
+          />
           <button
             onClick={act}
             type='button'
